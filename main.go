@@ -31,7 +31,7 @@ func main() {
 	app.Static("/", "./templates/dist")
 	// Schedule a task to run every 5 minutes
 	c := cron.New()
-	c.AddFunc("*/1 * * * *", func() {
+	c.AddFunc("*/7 * * * *", func() {
 		var response ResponseWrapper
 
 		// get a list of all links from db
