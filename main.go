@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -73,6 +74,7 @@ func main() {
 	app.Get("*", func(c *fiber.Ctx) error {
 		return c.SendFile("./dist/index.html")
 	})
+	port := os.Getenv("PORT")
 
-	app.Listen(":3000")
+	app.Listen(":" + port)
 }
